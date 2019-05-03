@@ -3,7 +3,7 @@ import styles from './LocationSearch.module.css';
 
 import algoliasearch from 'algoliasearch/lite';
 import { Configure, Hits, InstantSearch, SearchBox } from 'react-instantsearch-dom';
-import Hit from './Hit.js'
+import Hit from './hit.js'
 
 export default(props) => {
   const searchClient = algoliasearch(
