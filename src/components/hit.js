@@ -19,14 +19,18 @@ const Hit = ({ hit }) => {
       });
   }
 
-const Hit = ({ hit }) => (
+  return (
   <div className="hit">
-    <button onClick={handleClick} value={hit.id}>
+    <button onClick={() => handleClick()}>
      {hit.name}
      </button>
+     <br />
+     <table id={hit.id}>
+      Click to load forecast for {hit.name}
+     </table>
   </div>
 )
-
+}
 Hit.propTypes = {
   hit: PropTypes.object.isRequired
 }
