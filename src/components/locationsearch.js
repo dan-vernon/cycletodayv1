@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import styles from './LocationSearch.module.css';
 
 import algoliasearch from 'algoliasearch/lite';
-import { InstantSearch, SearchBox } from 'react-instantsearch-dom';
+import { Configure, Hits, InstantSearch, SearchBox } from 'react-instantsearch-dom';
+import Hit from './Hit.js'
 
 export default(props) => {
   const searchClient = algoliasearch(
@@ -11,12 +12,19 @@ export default(props) => {
   )
 
   return(
-    <InstantSearch
-  indexName="instant_search"
-  searchClient={searchClient}
+  <InstantSearch
+    indexName="dev_METO_PLACES"
+    searchClient={searchClient}
   >
-    <SearchBox />
-    </InstantSearch>
+    <Configure
+      hitsPerPage={6}
+      // aroundLatLngViaIP="true"
+      typoTolerance="min"
+    />
+    <SearchBox
+      searchAsYouType={true}/>
+    <Hits hitComponent={Hit} />
+  </ InstantSearch>
 
   )
 }
