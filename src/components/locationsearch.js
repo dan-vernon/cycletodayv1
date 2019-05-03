@@ -18,7 +18,7 @@ export default(props) => {
   >
     <Configure
       hitsPerPage={6}
-      // aroundLatLngViaIP="true"
+      aroundLatLngViaIP="true"
       typoTolerance="min"
     />
     <SearchBox
