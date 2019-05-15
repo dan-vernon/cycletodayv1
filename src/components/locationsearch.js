@@ -17,12 +17,23 @@ export default(props) => {
     searchClient={searchClient}
   >
     <Configure
-      hitsPerPage={6}
+      hitsPerPage={3}
       aroundLatLngViaIP="true"
       typoTolerance="min"
     />
+          <h3>
+      Select or search for your closest location
+      </h3>
+
     <SearchBox
-      searchAsYouType={true}/>
+      searchAsYouType={true}
+      autoFocus={true}
+      translations={{
+      submitTitle: 'Submit your location',
+      resetTitle: 'Reset',
+      placeholder: 'Enter your location...',
+      }}
+      />
     <Hits hitComponent={Hit} />
   </ InstantSearch>
 
