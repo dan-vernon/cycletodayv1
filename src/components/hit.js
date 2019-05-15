@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import {weatherType} from './weather_type.js'
 
 const Hit = ({ hit }) => {
   const handleClick = () => {
@@ -12,7 +13,10 @@ const Hit = ({ hit }) => {
         forecastBox.innerHTML = ""
         today.map((rep) => {
           return forecastBox.innerHTML += `<tr>
-          <td>${rep['$']/60}00h</td><td>feels like ${rep['F']}</td>
+          <td>Today ${rep['$']/60}00h</td>
+          <td>${weatherType(rep['W'])} ${rep['S']}% chance of rain</td>
+          <td>Temp ${rep['T']}C / feels like ${rep['F']}C</td>
+          <td>Wind ${rep['S']}-${rep['G']}mph from ${rep['D']} </td>
           </tr>
           `
         })
