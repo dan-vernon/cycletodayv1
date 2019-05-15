@@ -12,12 +12,14 @@ const Hit = ({ hit }) => {
         const today = data.SiteRep.DV.Location.Period[0].Rep
         forecastBox.innerHTML = ""
         today.map((rep) => {
-          return forecastBox.innerHTML += `<tr>
-          <td>Today ${rep['$']/60}00h</td>
-          <td>${weatherType(rep['W'])} ${rep['S']}% chance of rain</td>
-          <td>Temp ${rep['T']}C / feels like ${rep['F']}C</td>
-          <td>Wind ${rep['S']}-${rep['G']}mph from ${rep['D']} </td>
-          </tr>
+          return forecastBox.innerHTML += `
+          <div class="box-row">
+            <span><strong>${rep['$']/60}00h</strong></span>
+            <span>${weatherType(rep['W'])}</span>
+            <span><i class="fas fa-cloud-showers-heavy"></i> ${rep['S']}%</span>
+            <span><i class="fas fa-temperature-low"></i> ${rep['T']}C / feels like ${rep['F']}C</span>
+            <span><i class="fas fa-wind"></i> ${rep['S']}-${rep['G']}mph ${rep['D']} </span>
+          </div>
           `
         })
       });
@@ -29,9 +31,8 @@ const Hit = ({ hit }) => {
      {hit.name}
      </button>
      <br />
-     <table id={hit.id}>
-      Click to load forecast for {hit.name}
-     </table>
+     <div id={hit.id} className="forecast-box">
+     </div>
   </div>
 )
 }
