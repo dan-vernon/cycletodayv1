@@ -6,7 +6,7 @@ const Hit = ({ hit }) => {
   const handleClick = () => {
     console.log(hit.id)
     const forecastBox = document.getElementById(hit.id)
-    fetch(`https://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/${hit.id}?res=3hourly&key=${process.env.GATSBY_MO_KEY}`)
+    fetch(`http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/${hit.id}?res=3hourly&key=${process.env.GATSBY_MO_KEY}`)
       .then(response => response.json())
       .then(data => {
         const today = data.SiteRep.DV.Location.Period[0].Rep
